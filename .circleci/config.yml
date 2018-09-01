@@ -12,7 +12,7 @@ jobs:
             GH_URL='https://status.github.com/api/status.json'
             GH_STATUS=$(curl -s $GH_URL |  jq --raw-output '.status')
             echo "GitHub API Status: $GH_STATUS"
-            if [ ! $GH_STATUS -eq 'good'  ]; then
+            if [ ! '$GH_STATUS' = 'good'  ]; then
               echo "Error [GitHub API status: $GH_STATUS]"
               exit 1
             fi    
