@@ -20,6 +20,16 @@ jobs:
           command: |
             . helloworld/bin/activate
             python test_hello_world.py
+      - run:
+          name: Get GitHib Status
+          command: |
+            GH_URL='https://status.github.com/api/status.json'
+            GH_STATUS=curl -s $GH_URL |  jq --raw-output '.status'
+            echo "GitHub API Status: $GH_STATUS"
+            if [ ! $GH_STATUS -eq 'good'  ]; then
+              echo "Error [GitHub API status: $GH_STATUS]"
+              exit 1
+            fi
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
