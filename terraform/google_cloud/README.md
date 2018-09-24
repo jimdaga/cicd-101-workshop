@@ -2,7 +2,7 @@
 
 This [terraform](https://www.terraform.io/intro/index.html) example creates a new Google Cloud Instance using a [Google's Container-Optimized OS](https://cloud.google.com/container-optimized-os/docs/) image. Container-Optimized OS is an operating system image for Compute Engine VMs that is optimized for running Docker containers. With Container-Optimized OS, you can bring up your Docker containers on Google Cloud Platform quickly, efficiently, and securely.
 
-This tutorial compliments the [Intro CI/CD Tutorial](../../tutorial/cicd_101_guide.md) and demonstrates how use terraform to create a new Google Cloud Instance and deploy the application using the CI/CD Tutorial docker image.  The image will be pulled from docker hub and run on the instance created from terraform.
+This tutorial compliments the [Intro CI/CD Tutorial](../../tutorial/cicd_101_guide.md) and demonstrates how use terraform to create a new Google Cloud Instance and deploy the application using the CI/CD Tutorial Docker image.  The image will be pulled from Docker hub and run on the instance created from terraform.
 
 ## Create a Google Cloud Account
 
@@ -43,12 +43,12 @@ Change the *default* value to the project name you created earlier
 ```
 variable "docker_declaration" {
   type = "string"
-  # Change the image: string to match the docker image you want to use
+  # Change the image: string to match the Docker image you want to use
   default = "spec:\n  containers:\n    - name: test-docker\n      image: 'ariv3ra/cicd-101-workshop'\n      stdin: false\n      tty: false\n  restartPolicy: Always\n"
 }
 ```
 
-Change the value of: `image: 'ariv3ra/cicd-101-workshop'` to the docker image that you built and pushed to docker hub in the CI/CD tutorial. Change the *ariv3ra/cicd-101-workshop* to your Docker image name from Docker Hub.
+Change the value of: `image: 'ariv3ra/cicd-101-workshop'` to the Docker image that you built and pushed to Docker hub in the CI/CD tutorial. Change the *ariv3ra/cicd-101-workshop* to your Docker image name from Docker Hub.
 
 ## Terraform plan
 
