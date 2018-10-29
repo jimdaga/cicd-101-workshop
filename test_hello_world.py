@@ -13,7 +13,7 @@ class TestHelloWorld(unittest.TestCase):
 
     def test_message(self):
         response = self.app.get('/')
-        message = hello_world.wrap_html('Welcome to CI/CD 102 using CircleCI')
+        message = hello_world.wrap_html('Welcome to CI/CD 103 using CircleCI')
         self.assertEqual(response.data, message)
 
 if __name__ == '__main__':

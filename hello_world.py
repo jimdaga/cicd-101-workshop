@@ -17,7 +17,7 @@ def wrap_html(message):
 
 @app.route('/')
 def hello_world():
-    message = 'Welcome to CI/CD 102 using CircleCI'
+    message = 'Welcome to CI/CD 103 using CircleCI'
     html = wrap_html(message)
     return html
 
